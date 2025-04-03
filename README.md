@@ -15,3 +15,13 @@ From the root of the solution, run `.\build\build.ps1` in a powershell terminal.
 ```
 sslbinding.exe -thumb "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" -store "My" -site "Doogle" -port "443" -host "www.doogle.com"
 ```
+
+## From a pipeline job 
+
+You can run the following on a Windows agent/runner:
+
+```
+git clone https://github.com/treytesoro/iis-ssl-config-web-binding.git && cd iis-ssl-config-web-binding && .\build\build.ps1
+```
+
+That will build to `.\iis-ssl-config-web-binding\SetWebBinding\bin\Release`
