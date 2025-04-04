@@ -1,0 +1,13 @@
+<Wix xmlns="http://wixtoolset.org/schemas/v4/wxs">
+  <Fragment>
+    <StandardDirectory Id="ProgramFiles6432Folder">
+      <Directory Id="INSTALLFOLDER" Name="!(bind.Property.Manufacturer)">
+        <Directory Id="APPLICATIONFOLDER" Name="!(bind.Property.ProductName)"/>
+      </Directory>
+    </StandardDirectory>
+    <!-- <Directory Id="SYSTEMDRIVE">
+      <Directory Id="TEMPDIR" Name="Temp"  />
+    </Directory>
+    <SetDirectory Id="SYSTEMDRIVE" Value="[%SYSTEMDRIVE]"/> -->
+  </Fragment>
+</Wix>

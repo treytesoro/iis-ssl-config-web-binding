@@ -5,7 +5,7 @@
 
 vs_BuildTools.exe
 /build/buildtools
-BindingToolSetup/
+#BindingToolSetup/
 
 # User-specific files
 *.rsuser

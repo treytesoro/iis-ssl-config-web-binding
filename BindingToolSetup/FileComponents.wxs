@@ -1,0 +1,14 @@
+<Wix xmlns="http://wixtoolset.org/schemas/v4/wxs">
+  <Fragment>
+    <ComponentGroup Id="FileComponent1" Directory="APPLICATIONFOLDER">
+      <Component>
+        <File Source="$(var.SolutionDir)SetWebBinding\bin\Release\sslbinding.exe" />
+      </Component>
+    </ComponentGroup>
+    <!-- <ComponentGroup Id="FileComponent2" Directory="TEMPDIR">
+      <Component>
+        <File Source="FileComponents.wxs" />
+      </Component>
+    </ComponentGroup> -->
+  </Fragment>
+</Wix>

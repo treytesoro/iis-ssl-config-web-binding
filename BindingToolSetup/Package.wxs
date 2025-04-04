@@ -1,0 +1,10 @@
+﻿<Wix xmlns="http://wixtoolset.org/schemas/v4/wxs">
+  <Package Name="SSLBindingTool" Manufacturer="TGTesoro" Version="1.0.0.0" UpgradeCode="0CFE4D0F-560C-4658-B828-3643F3B8D30C">
+    <MajorUpgrade DowngradeErrorMessage="!(loc.DowngradeError)" />
+    <MediaTemplate EmbedCab="true"/>
+    <Feature Id="Main">
+      <ComponentGroupRef Id="FileComponent1" />
+      <!-- <ComponentGroupRef Id="FileComponent2" /> -->
+    </Feature>
+  </Package>
+</Wix>
