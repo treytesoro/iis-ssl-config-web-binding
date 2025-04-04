@@ -20,3 +20,5 @@ Set-Location $startFolder
 
 # Restore working directory
 Set-Location $startFolder
+
+& gh release create v1.2.3 .\SetWebBinding\bin\Release\sslbinding.exe
