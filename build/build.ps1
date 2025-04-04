@@ -26,9 +26,10 @@ Start-Process dotnet -ArgumentList "build", "-c", "Release" -Wait -NoNewWindow -
 
 Set-Location $startFolder
 #Start-Process -FilePath .\build\vs_BuildTools.exe -ArgumentList "uninstall","--quiet","--installPath","$startFolder\build\buildtools" -Wait
+Compress-Archive -Path ".\SetWebBinding\bin\Release" -DestinationPath ".\SetWebBinding\bin\Release.zip"
 
 # Restore working directory
 Set-Location $startFolder
 
 & gh release delete v1.0.0 --cleanup-tag --yes
-& gh release create v1.0.0 .\SetWebBinding\bin\Release\sslbinding.exe
+& gh release create v1.0.0 .\SetWebBinding\bin\Release.zip .\BindingToolSetup\bin\x64\Release\en-US\BindingToolSetup.msi

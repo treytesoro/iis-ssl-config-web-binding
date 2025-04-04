@@ -1,8 +1,17 @@
 <Wix xmlns="http://wixtoolset.org/schemas/v4/wxs">
   <Fragment>
     <ComponentGroup Id="FileComponent1" Directory="APPLICATIONFOLDER">
-      <Component>
+      <Component Guid="5B70081F-3712-4121-911F-2C6F70C85DFA">
         <File Source="$(var.SolutionDir)SetWebBinding\bin\Release\sslbinding.exe" />
+        <File Source="$(var.SolutionDir)SetWebBinding\bin\Release\sslbinding.exe.config" />
+        <File Source="$(var.SolutionDir)SetWebBinding\bin\Release\sslbinding.pdb" />
+        <File Source="$(var.SolutionDir)SetWebBinding\bin\Release\Microsoft.Web.Administration.dll" />
+        <File Source="$(var.SolutionDir)SetWebBinding\bin\Release\Microsoft.Win32.Registry.dll" />
+        <File Source="$(var.SolutionDir)SetWebBinding\bin\Release\System.Diagnostics.DiagnosticSource.dll" />
+        <File Source="$(var.SolutionDir)SetWebBinding\bin\Release\System.Diagnostics.DiagnosticSource.xml" />
+        <File Source="$(var.SolutionDir)SetWebBinding\bin\Release\System.Reflection.TypeExtensions.dll" />
+        <File Source="$(var.SolutionDir)SetWebBinding\bin\Release\System.Security.Principal.Windows.dll" />
+        <File Source="$(var.SolutionDir)SetWebBinding\bin\Release\System.ServiceProcess.ServiceController.dll" />
       </Component>
     </ComponentGroup>
     <!-- <ComponentGroup Id="FileComponent2" Directory="TEMPDIR">
