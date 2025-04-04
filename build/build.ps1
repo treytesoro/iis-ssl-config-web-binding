@@ -20,7 +20,8 @@ Set-Location $startFolder
 
 # Start release build in solution directory
 # Start-Process msbuild -ArgumentList "-p:Configuration=Release"
-Start-Process dotnet -ArgumentList "build", "-c", "Release"
+Write-Output "Build.ps1 is starting dotnet build -c Release"
+Start-Process dotnet -ArgumentList "build", "-c", "Release" -Wait
 
 Set-Location $startFolder
 #Start-Process -FilePath .\build\vs_BuildTools.exe -ArgumentList "uninstall","--quiet","--installPath","$startFolder\build\buildtools" -Wait
