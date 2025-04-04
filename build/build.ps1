@@ -21,4 +21,6 @@ Set-Location $startFolder
 # Restore working directory
 Set-Location $startFolder
 
-& gh release create v1.2.3 .\SetWebBinding\bin\Release\sslbinding.exe
+& gh release delete v1.2.3 --cleanup-tag --yes
+& gh release delete v1.0.0 --cleanup-tag --yes
+& gh release create v1.0.0 .\SetWebBinding\bin\Release\sslbinding.exe
