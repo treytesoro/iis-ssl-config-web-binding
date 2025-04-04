@@ -21,8 +21,8 @@ Set-Location $startFolder
 # Start release build in solution directory
 # Start-Process msbuild -ArgumentList "-p:Configuration=Release"
 Write-Output "Build.ps1 is starting dotnet build -c Release"
-Start-Process dotnet -ArgumentList "restore" -Wait -NoNewWindow -WorkingDirectory $startFolder -PassThru
-Start-Process dotnet -ArgumentList "build", "-c", "Release" -Wait -NoNewWindow -WorkingDirectory $startFolder -PassThru
+Start-Process dotnet -ArgumentList "restore" -Wait -NoNewWindow -WorkingDirectory $startFolder
+Start-Process dotnet -ArgumentList "build", "-c", "Release" -Wait -NoNewWindow -WorkingDirectory $startFolder
 
 
 Set-Location $startFolder
