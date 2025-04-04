@@ -82,6 +82,8 @@ jobs:
       with:
         dotnet-version: '9.0.x'
 
+    - uses: nuget/setup-nuget@v2      
+    - run: nuget restore SetWebBinding.sln
     - name: Run build script
       run: pwsh.exe -File ".\build\build.ps1"
 
