@@ -10,7 +10,7 @@ if($null -eq $obj){
 }
 
 # Dot source Launch-VsDevShell.ps1 script
-. "$($obj.Directory.ToString())\$($obj.Name)"
+#. "$($obj.Directory.ToString())\$($obj.Name)"
 
 # Restore working directory
 Set-Location $startFolder

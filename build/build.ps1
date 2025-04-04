@@ -19,7 +19,8 @@ $startFolder = Get-Location
 Set-Location $startFolder
 
 # Start release build in solution directory
-Start-Process msbuild -ArgumentList "-p:Configuration=Release"
+# Start-Process msbuild -ArgumentList "-p:Configuration=Release"
+Start-Process dotnet -ArgumentList "build", "-c", "Release"
 
 Set-Location $startFolder
 Start-Process -FilePath .\build\vs_BuildTools.exe -ArgumentList "uninstall","--quiet","--installPath","$startFolder\build\buildtools" -Wait
