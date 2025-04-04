@@ -1,22 +1,47 @@
 # Save and restore working directory
-$startFolder = Get-Location
+$startFolder = (Get-Location).Path
+Write-Host "Started in $startFolder"
 
-# Locate visual studio's powershell developer shell loader
-$obj = (Get-ChildItem -Path 'C:\Program Files\Microsoft Visual Studio' -Recurse | Where-Object Name -eq 'Launch-VsDevShell.ps1' | Select-Object -First 1)
+$msbuildinfo = $null
 
-# Exit if not found
-if($null -eq $obj){
-    Exit 1
+try {
+    ($msbuildinfo = get-command msbuild) | Out-Null
+}
+catch {
+    
 }
 
-# Dot source Launch-VsDevShell.ps1 script
-. "$($obj.Directory.ToString())\$($obj.Name)"
+if($null -eq $msbuildinfo) {
+    Invoke-WebRequest https://aka.ms/vs/17/release/vs_BuildTools.exe -OutFile .\build\vs_BuildTools.exe
+    Start-Process -FilePath .\build\vs_BuildTools.exe -ArgumentList "install","--quiet","--add","Microsoft.Net.Component.4.8.SDK","--wait","--installPath","$startFolder\build\buildtools" -Wait
+}
+
+if(Test-Path "$startFolder\build\buildtools\Common7\Tools\Launch-VsDevShell.ps1") {
+    . "$startFolder\build\buildtools\Common7\Tools\Launch-VsDevShell.ps1"
+    try {
+        ($msbuildinfo = get-command msbuild) | Out-Null
+    }
+    catch {
+        
+    }
+}
+
+if($msbuildinfo -ne $null) {
+    Write-Output "MSBUILD found"
+}
+else {
+    Write-Output "MSBUILD not found"
+    Exit 1
+}
 
 # Go to solution directory
 Set-Location $startFolder
 
 # Start release build in solution directory
-& msbuild -p:Configuration=Release
+Start-Process msbuild -ArgumentList "-p:Configuration=Release"
+
+Set-Location $startFolder
+Start-Process -FilePath .\build\vs_BuildTools.exe -ArgumentList "uninstall","--quiet","--installPath","$startFolder\build\buildtools" -Wait
 
 # Restore working directory
 Set-Location $startFolder
