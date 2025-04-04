@@ -23,7 +23,7 @@ Set-Location $startFolder
 Start-Process dotnet -ArgumentList "build", "-c", "Release"
 
 Set-Location $startFolder
-Start-Process -FilePath .\build\vs_BuildTools.exe -ArgumentList "uninstall","--quiet","--installPath","$startFolder\build\buildtools" -Wait
+#Start-Process -FilePath .\build\vs_BuildTools.exe -ArgumentList "uninstall","--quiet","--installPath","$startFolder\build\buildtools" -Wait
 
 # Restore working directory
 Set-Location $startFolder
